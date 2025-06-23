@@ -59,6 +59,7 @@ public class Sorting extends RefreshableFeature implements SortingManager, JoinL
         types.put("PLACEHOLDER_Z_TO_A", PlaceholderZtoA::new);
         types.put("PLACEHOLDER_LOW_TO_HIGH", PlaceholderLowToHigh::new);
         types.put("PLACEHOLDER_HIGH_TO_LOW", PlaceholderHighToLow::new);
+        types.put("GROUPS_OR_PLACEHOLDER", GroupsOrPlaceholder::new);
         usedSortingTypes = compile(configuration.getSortingTypes());
     }
 

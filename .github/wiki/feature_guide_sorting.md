@@ -8,6 +8,7 @@
   * [PLACEHOLDER_Z_TO_A](#placeholder_z_to_a)
   * [PLACEHOLDER_LOW_TO_HIGH](#placeholder_low_to_high)
   * [PLACEHOLDER_HIGH_TO_LOW](#placeholder_high_to_low)
+  * [GROUPS_OR_PLACEHOLDER](#groups_or_placeholder)
 * [Multiple elements with the same priority](#multiple-elements-with-the-same-priority)
 * [Combining multiple sorting types](#combining-multiple-sorting-types)
 * [Additional settings](#additional-settings)
@@ -122,7 +123,7 @@ scoreboard-teams:
 ```
 
 ## PLACEHOLDER_HIGH_TO_LOW
-This method sorts players numerically depending on the output of a **numeric** placeholder from the highest value to the lowest value.  
+This method sorts players numerically depending on the output of a **numeric** placeholder from the highest value to the lowest value.
 **Only placeholders that output number values will work with this sorting type!**  
 Supported number interval is from -1,000,000,000 to 1,000,000,000 and 5 decimal places.  
 To configure this sorting type, write the placeholder that you want to use. That's it.  
@@ -132,6 +133,18 @@ Example:
 scoreboard-teams:
   sorting-types:
     - "PLACEHOLDER_HIGH_TO_LOW:%luckperms_highest_group_weight%"
+```
+
+## GROUPS_OR_PLACEHOLDER
+This method sorts players by their permission group. If the player's group is not listed,
+the output of a placeholder is used instead. This is useful for grouping players by towns
+while still keeping LuckPerms groups on top.
+
+Configuration follows the `%placeholder%:group1,group2` format. Example using a Towny placeholder:
+```yaml
+scoreboard-teams:
+  sorting-types:
+    - "GROUPS_OR_PLACEHOLDER:%townyadvanced_town%:admin,mod,default"
 ```
 
 # Multiple elements with the same priority
@@ -180,7 +193,7 @@ Although you can theoretically use as many sorting types as you want, there are 
 # Additional info
 ## Additional note 1 - Limitations
 All sorting elements must together build a team name up to 16 characters long. Because of that, cuts in placeholder outputs may be required. TAB is already using the shortest possible values for all sorting types:
-* `GROUPS`, `PERMISSIONS` and `PLACEHOLDER` - 1 character
+* `GROUPS`, `PERMISSIONS`, `PLACEHOLDER` and `GROUPS_OR_PLACEHOLDER` - 1 character
 * `PLACEHOLDER_LOW_TO_HIGH` and `PLACEHOLDER_HIGH_TO_LOW` - 3 characters
 * `PLACEHOLDER_A_TO_Z` and `PLACEHOLDER_Z_TO_A` - as many as used
 
