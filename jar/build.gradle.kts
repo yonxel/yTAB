@@ -7,6 +7,7 @@ plugins {
 val platforms = setOf(
     rootProject.projects.bukkit,
     rootProject.projects.bukkit.paper1205,
+    rootProject.projects.bukkit.paper1211,
     rootProject.projects.bukkit.paper1212,
     rootProject.projects.bukkit.paper1214,
     rootProject.projects.bukkit.v18R3,

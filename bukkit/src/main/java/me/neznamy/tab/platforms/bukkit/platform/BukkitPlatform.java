@@ -174,9 +174,10 @@ public class BukkitPlatform implements BackendPlatform {
         switch (serverVersion) {
             case V1_20_5:
             case V1_20_6:
+                return "1_20_5";
             case V1_21:
             case V1_21_1:
-                return "1_20_5";
+                return "1_21_1";
             case V1_21_2:
             case V1_21_3:
                 return "1_21_2";
